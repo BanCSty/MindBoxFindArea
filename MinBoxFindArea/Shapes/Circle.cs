@@ -4,15 +4,16 @@ namespace MinBoxFindArea.Shapes
 {
     public class Circle : Figure
     {
-        public double Radius { get;}
+        public double Radius { get; }
         public Circle(double radius)
         {
+            if (radius < 0) throw new ArgumentException("Value must be positiv :)");
             Radius = radius;
         }
 
         public override double GetArea()
         {
-            throw new NotImplementedException();
+            return Radius * Radius * Math.PI;
         }
     }
 }
