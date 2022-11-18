@@ -11,7 +11,7 @@ namespace MinBoxFindArea.Shapes
             Radius = radius;
         }
 
-        public override double GetArea() =>  _radius * _radius * Math.PI;
+        public override double GetArea() => Radius * Radius * Math.PI;
 
     }
 }

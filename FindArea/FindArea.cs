@@ -24,7 +24,7 @@ namespace FindArea
         [TestMethod]
         public void TriangleNegativeSideTest()
         {
-            //Assert.ThrowsException<ArgumentException>(() => new Triangle(-1, 2, 3));
+            Assert.ThrowsException<ArgumentException>(() => new Triangle(-1, 2, 3));
             Assert.ThrowsException<ArgumentException>(() => new Triangle(1, -2, 3));
             Assert.ThrowsException<ArgumentException>(() => new Triangle(1, 2, -3));
         }

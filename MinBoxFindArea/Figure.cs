@@ -9,7 +9,7 @@ namespace MinBoxFindArea
 {
     public abstract class Figure
     {
-        //ленивая инициализация для повышения производительности(ведь далеко не всегда нужен этот функционал)
+        //ленивая реализация для повышения производительности(ведь далеко не всегда нужен этот функционал)
         //и лаконичности кода
         private readonly Lazy<double> _area;
 
@@ -20,7 +20,7 @@ namespace MinBoxFindArea
             _area = new Lazy<double>(GetArea);
         }
 
-        //Проверка числа. Служит фильтром для присвоения валидных значений свойствам
+        //Возможно спроное решение, однако предотвращает повторение кода
         public double CeckNegativeValue(double value)
         {
             if (value >= 0)
@@ -28,7 +28,7 @@ namespace MinBoxFindArea
             else throw new ArgumentException("Value must be positiv :)");
         }
 
-        //Поиск площади
+        //Поиск площади фигуры
         public abstract double GetArea();
     }
 }
