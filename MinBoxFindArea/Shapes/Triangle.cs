@@ -8,9 +8,9 @@ namespace MinBoxFindArea.Shapes
 
         private double _a, _b, _c;
 
-        public double A { get => _a; set => _a = CeckValue(value); }
-        public double B { get => _b; set => _b = CeckValue(value); }
-        public double C { get => _c; set => _c = CeckValue(value); }
+        public double A { get => _a; set => _a = CeckNegativeValue(value); }
+        public double B { get => _b; set => _b = CeckNegativeValue(value); }
+        public double C { get => _c; set => _c = CeckNegativeValue(value); }
 
         public Triangle(double a, double b, double c)
         {
@@ -21,28 +21,21 @@ namespace MinBoxFindArea.Shapes
 
         public bool IsRectengular()
         {
-            double max = new double[] { A, B, C }.Max();
+            double max = new double[] { _a, _b, _c }.Max();
             double maxPow = max * max * 2;
-            return maxPow == A * A + B * B + C * C;
+            return maxPow == _a * _a + _b * _b + _c * _c;
         }
 
         public override double GetArea()
         {
-            var halfPerimeter = (A + B + C) / 2;
+            var halfPerimeter = (_a + _b + _c) / 2;
 
             //Coefficient
-            var ACoff = halfPerimeter - A;
-            var BCoff = halfPerimeter - B;
-            var CCoff = halfPerimeter - C;
+            var ACoff = halfPerimeter - _a;
+            var BCoff = halfPerimeter - _b;
+            var CCoff = halfPerimeter - _c;
 
             return Math.Sqrt(halfPerimeter * ACoff * BCoff * CCoff);
-        }
-
-        public double CeckValue(double value)
-        {
-            if (value >= 0)
-                return value;
-            else throw new ArgumentException("Value must be positiv :)");
         }
     }
 }

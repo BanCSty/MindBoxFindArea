@@ -4,10 +4,10 @@ namespace MinBoxFindArea.Shapes
 {
     public class Circle : Figure
     {
-        public double Radius { get; }
+        private double _radius;
+        public double Radius { get => _radius; set => _radius = CeckNegativeValue(value); }
         public Circle(double radius)
         {
-            if (radius < 0) throw new ArgumentException("Value must be positiv :)");
             Radius = radius;
         }
 
